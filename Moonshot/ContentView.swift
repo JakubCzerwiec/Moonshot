@@ -19,27 +19,21 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            NavigationStack {
+            Group {
                 if showingGrid {
                     GridView()
-                        .toolbar {
-                            Toggle(isOn: $showingGrid, label: {
-                                Text(showingGrid ? "List View" : "Grid View")
-                            }
-                            )
-                            .toggleStyle(.switch)
-                        }
                 } else {
                     ListView()
-                        .toolbar {
-                            Toggle(isOn: $showingGrid, label: {
-                                Text(showingGrid ? "List View" : "Grid View")
-                            }
-                            )
-                            .toggleStyle(.switch)
-                        }
                 }
             }
+            .toolbar {
+                Toggle(isOn: $showingGrid, label: {
+                    Text(showingGrid ? "List View" : "Grid View")
+                }
+                )
+                .toggleStyle(.switch)
+            }
+
         }
     }
 }
