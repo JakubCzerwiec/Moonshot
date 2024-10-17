@@ -15,46 +15,31 @@ struct ContentView: View {
         GridItem(.adaptive(minimum: 150))
     ]
     
+    @State private var showingGrid = true
+
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(mission) { mission in
-                        NavigationLink {
-                            MissionView(mission: mission, astronauts: astronauts)
-                        } label: {
-                            VStack {
-                                Image(mission.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                    .padding()
-                                VStack {
-                                    Text(mission.displayName)
-                                        .font(.headline)
-                                        .foregroundStyle(.white)
-                                    
-                                    Text(mission.formattedLaunchDate)
-                                        .font(.caption)
-                                        .foregroundStyle(.gray)
-                                }
-                                .padding(.vertical)
-                                .frame(maxWidth: .infinity)
-                                .background(.lightBackground)
+            NavigationStack {
+                if showingGrid {
+                    GridView()
+                        .toolbar {
+                            Toggle(isOn: $showingGrid, label: {
+                                Text(showingGrid ? "List View" : "Grid View")
                             }
-                            .clipShape(.rect(cornerRadius: 10))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.lightBackground)
                             )
+                            .toggleStyle(.switch)
                         }
-                    }
+                } else {
+                    ListView()
+                        .toolbar {
+                            Toggle(isOn: $showingGrid, label: {
+                                Text(showingGrid ? "List View" : "Grid View")
+                            }
+                            )
+                            .toggleStyle(.switch)
+                        }
                 }
-                .padding([.horizontal, .bottom])
             }
-            .navigationTitle("Moonshot")
-            .background(.darkBackground)
-            .preferredColorScheme(.dark)
         }
     }
 }
