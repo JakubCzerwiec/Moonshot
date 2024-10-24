@@ -17,9 +17,7 @@ struct ListView: View {
         NavigationStack {
                         List {
                             ForEach(mission) { mission in
-                                NavigationLink {
-                                    MissionView(mission: mission, astronauts: astronauts)
-                                } label: {
+                                NavigationLink(value: mission) {
                                     HStack {
                                         Image(mission.image)
                                             .resizable()
@@ -38,10 +36,15 @@ struct ListView: View {
                                         .padding(.horizontal)
                                         .frame(maxWidth: .infinity)
                                     }
+                                    
+                                }
+                                .navigationDestination(for: Mission.self) { mission in
+                                    MissionView(mission: mission, astronauts: astronauts)
                                 }
                                 .listRowBackground(Color.darkBackground)
                                 .listRowSeparator(.hidden)
                                 .padding(.horizontal)
+
                             }
             }
             .navigationTitle("Moonshot")
@@ -50,7 +53,7 @@ struct ListView: View {
             .preferredColorScheme(.dark)
 
         }
-    }    
+    }
 }
 
 #Preview {

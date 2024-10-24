@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Creating Astronauts struct
 struct Astronaut: Codable, Identifiable {
     let id: String
     let name: String

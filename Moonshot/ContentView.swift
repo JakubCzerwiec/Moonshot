@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Decoding data from json and putting it into astronauts and mission
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let mission: [Mission] = Bundle.main.decode("missions.json")
 

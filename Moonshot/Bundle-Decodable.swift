@@ -19,11 +19,12 @@ extension Bundle {
         }
         // decoding file
         let decoder = JSONDecoder()
-        
+        // Formating date
         let formatter = DateFormatter()
         formatter.dateFormat = "y-MM-dd"
         decoder.dateDecodingStrategy = .formatted(formatter)
         
+        // Catching errors
         do {
             return try decoder.decode(T.self, from: data)
         } catch DecodingError.keyNotFound(let key, let context) {
