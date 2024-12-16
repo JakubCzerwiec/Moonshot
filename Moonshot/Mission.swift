@@ -20,6 +20,8 @@ struct Mission: Codable, Identifiable, Hashable {
     let crew: [CrewRole]
     let description: String
     
+    let badgeDescriotion: String
+    
     var displayName: String {
         "Apollo \(id)"
     }

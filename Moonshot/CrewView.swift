@@ -36,6 +36,10 @@ struct CrewView: View {
                                         .foregroundStyle(.white.opacity(0.5))
                                 }
                             }
+                            .accessibilityElement()
+                            .accessibilityAddTraits(.isButton)
+                            .accessibilityLabel(CrewMemeber.astronaut.name)
+                            .accessibilityHint(CrewMemeber.role)
                             .padding(.horizontal)
                         }
                     }

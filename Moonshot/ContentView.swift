@@ -4,7 +4,7 @@
 //
 //  Created by Mój Maczek on 12/10/2024.
 //
-
+//              accessibility: button to pictures, descriptions to pictures  (maybe use chat gpt?)
 import SwiftUI
 
 struct ContentView: View {

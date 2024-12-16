@@ -43,6 +43,10 @@ struct GridView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(.lightBackground)
                             }
+                            .accessibilityElement()
+                            .accessibilityAddTraits(.isButton)
+                            .accessibilityLabel(mission.displayName)
+                            .accessibilityHint(mission.badgeDescriotion)
                             .clipShape(.rect(cornerRadius: 10))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)

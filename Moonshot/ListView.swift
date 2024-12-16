@@ -36,6 +36,10 @@ struct ListView: View {
                                         .padding(.horizontal)
                                         .frame(maxWidth: .infinity)
                                     }
+                                    .accessibilityElement()
+                                    .accessibilityAddTraits(.isButton)
+                                    .accessibilityLabel(mission.displayName)
+                                    .accessibilityHint(mission.badgeDescriotion)
                                     
                                 }
                                 .navigationDestination(for: Mission.self) { mission in

@@ -23,6 +23,7 @@ struct MissionView: View {
                     .resizable()
                     .scaledToFit()
                     .containerRelativeFrame(.horizontal) { width, axis in width * 0.6 }
+                    .accessibilityHidden(true)
                     
                 Text(mission.formattedLaunchDate)
                     .padding(.top)
